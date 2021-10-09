@@ -4,9 +4,79 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Hello World</h1>
+    <section class="container">
+        <section class="area-logo">
+            <img src="./assets/logo.svg" class="logo">
+        </section>
+        <section class="conteudo">
+            <!-- PARTE ONDE VAI O CÁLCULO -->
+            <section class="calculo">
+                <section class="input-titulo">
+                    <h1 class="txt-base">Bill</h1>
+                    <div class="area-input" id="conta">
+                        <img src="./assets/icon-dollar.svg" class="icone" id="dollar">
+                        <input type="text" placeholder="0">
+                    </div>
+                </section>
+                
+                <section class="area-gorjeta">
+                    <p class="titulo-gorjeta">Select Tip %</p>
+                    <div class="opcoes-gorjeta">
+                        <div class="bt-gorjeta">
+                            <p class="txt-gorjeta">5%</p>
+                        </div>
+                        <div class="bt-gorjeta">
+                            <p class="txt-gorjeta">10%</p>
+                        </div>
+                        <div class="bt-gorjeta">
+                            <p class="txt-gorjeta">15%</p>
+                        </div>
+                        <div class="bt-gorjeta">
+                            <p class="txt-gorjeta">25%</p>
+                        </div>
+                        <div class="bt-gorjeta">
+                            <p class="txt-gorjeta">50%</p>
+                        </div>
+                        <div class="input-gorjeta">
+                            <input type="text" placeholder="Custom" id="porcentagem">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="input-titulo">
+                    <h1 class="txt-base">Number of People</h1>
+                    <div class="area-input" id="conta">
+                        <img src="./assets/icon-person.svg" class="icone" id="dollar">
+                        <input type="text" placeholder="0">
+                    </div>
+                </section>             
+            </section>
+
+            <!-- PARTE ONDE VAI O RESULTADO -->
+            <section class="resultado">
+                <div class="saida">
+                    <div class="legenda-saida">
+                        <p class="principal-saida">Tip Amount</p>
+                        <p class="secundario-saida">/ person</p>
+                    </div>
+                    <h1 class="resultado-saida" id="saida-gorjeta">$0.00</h1>
+                </div>
+                <div class="saida">
+                    <div class="legenda-saida">
+                        <p class="principal-saida">Total</p>
+                        <p class="secundario-saida">/ person</p>
+                    </div>
+                    <h1 class="resultado-saida" id="saida-total">$0.00</h1>
+                </div>
+                <div class="bt-reset">reset</div>
+            </section>
+        </section>
+    </section>
 </body>
 </html>

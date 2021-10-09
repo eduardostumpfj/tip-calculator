@@ -1,0 +1,79 @@
+:root{
+    --cr-fundo:hsl(185, 41%, 84%);
+    --cr-principal:hsl(172, 67%, 45%);
+    --cr-principal-escuro:hsl(183, 100%, 15%);
+    --cr-cinza-escuro1:hsl(186, 14%, 43%);
+    --cr-cinza-escuro2:hsl(184, 14%, 56%);
+    --cr-cinza-claro1:hsl(185, 41%, 84%);
+    --cr-cinza-claro2:hsl(189, 41%, 97%);
+    --ft-principal:'Space Mono', monospace
+}
+
+body{
+    font-family: var(--ft-principal);
+    background:var(--cr-fundo);
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5em;    
+}
+
+.logo{
+    width: 70px;
+}
+
+.conteudo{
+    background: white;
+    width:60vw;
+    padding:2em;
+    border-radius: 1.5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+    box-shadow: 2px 10px 30px hsla(183, 100%, 15%, 15%);
+}
+/* PARTE DA GORJETA --------------------------------------------------- */
+.opcoes-gorjeta{
+    /* background: red; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: .5em;
+}
+
+.opcoes-gorjeta div{
+    font-size: 24px;
+    font-weight: 700;
+    width: 30%;
+    height: 50px;
+    border-radius: 5px;
+}
+.bt-gorjeta{
+    background:var(--cr-principal-escuro);
+    display: flex;
+    place-items: center;
+    justify-content: center;
+}
+.txt-gorjeta{
+    color:white;
+}
+
+.input-gorjeta{
+    background: var(--cr-cinza-claro2);
+}
+
+#porcentagem{
+    border: none;
+    background: none;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: var(--ft-principal);
+    max-width:calc(100% - .5em);
+}
