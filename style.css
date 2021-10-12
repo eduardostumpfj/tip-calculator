@@ -1,21 +1,55 @@
 :root{
-    --cr-fundo:hsl(185, 41%, 84%);
     --cr-principal:hsl(172, 67%, 45%);
+    --cr-principal-claro:#9ee8df;
     --cr-principal-escuro:hsl(183, 100%, 15%);
     --cr-cinza-escuro1:hsl(186, 14%, 43%);
     --cr-cinza-escuro2:hsl(184, 14%, 56%);
     --cr-cinza-claro1:hsl(185, 41%, 84%);
     --cr-cinza-claro2:hsl(189, 41%, 97%);
-    --ft-principal:'Space Mono', monospace
+    --cr-alerta: rgb(228, 88, 83);
+    --ft-principal:'Space Mono', monospace;
+    --borda-principal:5px;
+    --break-mobile: 374px;
 }
-
+/* ELEMENTOS GERAIS ----------------------------------------------------------------------------- */
 body{
     font-family: var(--ft-principal);
-    background:var(--cr-fundo);
+    background:var(--cr-cinza-claro1);
     margin: 0;
     height: 100vh;
     display: grid;
     place-items: center;
+}
+
+input {
+    font-family: var(--ft-principal);
+    color:var(--cr-principal-escuro);
+    font-size: 24px;
+    font-weight: 700;
+    text-align: right;
+    height: 50px;
+    border: none;
+    background: var(--cr-cinza-claro2);
+    border-radius: var(--borda-principal);
+    caret-color: var(--cr-principal);
+}
+
+input:focus{
+    outline: solid 2px var(--cr-principal);
+}
+
+input::placeholder {
+    color: var(--cr-cinza-escuro2);
+}
+
+input:focus::placeholder{
+    color:transparent;
+}
+
+
+/* ELEMENTOS INDIVIDUAIS ----------------------------------------------------------------------------- */
+.off{
+    display: none;
 }
 
 .container{
@@ -30,50 +64,187 @@ body{
 }
 
 .conteudo{
+    /* overflow: hidden ; */
+    max-width: 870px;
     background: white;
-    width:60vw;
     padding:2em;
     border-radius: 1.5em;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2em;
+    gap: 3em;
     box-shadow: 2px 10px 30px hsla(183, 100%, 15%, 15%);
 }
+
+.calculo{
+    min-width: var(--break-mobile);
+    display: flex;
+    flex-direction: column;
+    gap:2em;
+}
+
+
+/*  INPUT TÍTULO ------------------------------------------------------------------------------------ */
+.txt-base, .titulo-gorjeta, .txt-alerta{
+    color: var(--cr-cinza-escuro1);
+    margin:0;
+    margin-bottom: .5em;
+}
+
+.area-input{
+    position: relative;
+}
+
+.icone-input{
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+.input-base{
+    padding-right: 1em;
+    padding-left:45px;
+    width: calc(100% - 1em - 45px);
+}
+
+.titulo-pessoas{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.txt-alerta{
+    color: var(--cr-alerta);
+}
+
+
 /* PARTE DA GORJETA --------------------------------------------------- */
-.opcoes-gorjeta{
-    /* background: red; */
+.opcoes-gorjeta {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: space-around;
     gap: .5em;
 }
 
 .opcoes-gorjeta div{
     font-size: 24px;
-    font-weight: 700;
-    width: 30%;
+    font-weight: 500;
+    width: 120px;
     height: 50px;
-    border-radius: 5px;
+    border-radius: var(--borda-principal);
 }
+
+/* Botões------ */
 .bt-gorjeta{
     background:var(--cr-principal-escuro);
     display: flex;
     place-items: center;
     justify-content: center;
+    transition: background .2s;
 }
-.txt-gorjeta{
+.bt-gorjeta:hover{
+    cursor:pointer;
+    background:var(--cr-principal-claro);
+    color: var(--cr-principal-escuro)
+}
+
+.txt-gorjeta {
+    color:white;
+    transition: color .2s, font-weight .2s;
+}
+.bt-gorjeta:hover > p{
+    color:var(--cr-principal-escuro);
+    font-weight: 700;
+}
+
+.gorjeta-selecionada{
+    background: var(--cr-principal);
+    
+}
+.gorjeta-selecionada > p{
+    color:var(--cr-principal-escuro);
+    font-weight: 700;    
+}
+
+/* Input */
+#porcentagem, #porcentagem::placeholder {
+    padding-right: .5em;
+    width: calc(120px - .5em);
+    font-size: 24px;
+    font-weight: 700;]
+}
+
+#porcentagem::placeholder{
+    text-align: center;
+}
+
+
+/* RESULTADO------------------------------------------------------------------------------------------- */
+.resultado{
+    min-width: 375px;
+    background: var(--cr-principal-escuro);
+    padding: 2em;
+    border-radius: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.saida{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    align-items: center;
+}
+
+.legenda-saida h1{
+    margin: 0;
+}
+
+
+.principal-saida{
+    font-weight: 400;
     color:white;
 }
 
-.input-gorjeta{
-    background: var(--cr-cinza-claro2);
+.secundario-saida{
+    font-size: .8em;
+    font-weight: 700;
+    color: var(--cr-cinza-escuro2);
 }
 
-#porcentagem{
-    border: none;
-    background: none;
-    font-size: 24px;
+.resultado-saida{
+    margin: 0;
+    text-align: right;
+    font-size: 3em;
     font-weight: 700;
-    font-family: var(--ft-principal);
-    max-width:calc(100% - .5em);
+    color: var(--cr-principal);
+}
+
+.bt-reset{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.2em;
+    color: var(--cr-principal-escuro);
+    border-radius: var(--borda-principal) ;
+    background: var(--cr-principal);
+    transition: background 0.2s;
+}
+
+.bt-reset:hover{
+    cursor:pointer;
+    background:var(--cr-principal-claro);
+    color: var(--cr-principal-escuro)
+}
+
+@media (max-width: 940px){
+    .conteudo{
+        overflow:hidden
+        /* max-width: 940px; */
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+    }
 }

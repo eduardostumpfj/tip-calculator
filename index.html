@@ -20,13 +20,13 @@
                 <section class="input-titulo">
                     <h1 class="txt-base">Bill</h1>
                     <div class="area-input" id="conta">
-                        <img src="./assets/icon-dollar.svg" class="icone" id="dollar">
-                        <input type="text" placeholder="0">
+                        <img src="./assets/icon-dollar.svg" class="icone-input" id="dollar">
+                        <input type="text" placeholder="0" class="input-base" id="total-conta">
                     </div>
                 </section>
                 
                 <section class="area-gorjeta">
-                    <p class="titulo-gorjeta">Select Tip %</p>
+                    <h1 class="titulo-gorjeta">Select Tip %</h1>
                     <div class="opcoes-gorjeta">
                         <div class="bt-gorjeta">
                             <p class="txt-gorjeta">5%</p>
@@ -34,7 +34,7 @@
                         <div class="bt-gorjeta">
                             <p class="txt-gorjeta">10%</p>
                         </div>
-                        <div class="bt-gorjeta">
+                        <div class="bt-gorjeta gorjeta-selecionada">
                             <p class="txt-gorjeta">15%</p>
                         </div>
                         <div class="bt-gorjeta">
@@ -50,29 +50,34 @@
                 </section>
 
                 <section class="input-titulo">
-                    <h1 class="txt-base">Number of People</h1>
+                    <div class="titulo-pessoas">
+                        <h1 class="txt-base">Number of People</h1>
+                        <h1 class="txt-alerta off">Can´t be zero</h1>
+                    </div>
                     <div class="area-input" id="conta">
-                        <img src="./assets/icon-person.svg" class="icone" id="dollar">
-                        <input type="text" placeholder="0">
+                        <img src="./assets/icon-person.svg" class="icone-input" id="dollar">
+                        <input type="text" placeholder="0" class="input-base" id="total-pessoa"> 
                     </div>
                 </section>             
             </section>
 
             <!-- PARTE ONDE VAI O RESULTADO -->
             <section class="resultado">
-                <div class="saida">
-                    <div class="legenda-saida">
-                        <p class="principal-saida">Tip Amount</p>
-                        <p class="secundario-saida">/ person</p>
+                <div class="area-saida">
+                    <div class="saida">
+                        <div class="legenda-saida">
+                            <h1 class="principal-saida">Tip Amount</h1>
+                            <h1 class="secundario-saida">/ person</h1>
+                        </div>
+                        <h1 class="resultado-saida" id="saida-gorjeta">$0.00</h1>
                     </div>
-                    <h1 class="resultado-saida" id="saida-gorjeta">$0.00</h1>
-                </div>
-                <div class="saida">
-                    <div class="legenda-saida">
-                        <p class="principal-saida">Total</p>
-                        <p class="secundario-saida">/ person</p>
+                    <div class="saida">
+                        <div class="legenda-saida">
+                            <h1 class="principal-saida">Total</h1>
+                            <h1 class="secundario-saida">/ person</h1>
+                        </div>
+                        <h1 class="resultado-saida" id="saida-total">$0.00</h1>
                     </div>
-                    <h1 class="resultado-saida" id="saida-total">$0.00</h1>
                 </div>
                 <div class="bt-reset">reset</div>
             </section>
