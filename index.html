@@ -28,23 +28,13 @@
                 <section class="area-gorjeta">
                     <h1 class="titulo-gorjeta">Select Tip %</h1>
                     <div class="opcoes-gorjeta">
-                        <div class="bt-gorjeta">
-                            <p class="txt-gorjeta">5%</p>
-                        </div>
-                        <div class="bt-gorjeta">
-                            <p class="txt-gorjeta">10%</p>
-                        </div>
-                        <div class="bt-gorjeta gorjeta-selecionada">
-                            <p class="txt-gorjeta">15%</p>
-                        </div>
-                        <div class="bt-gorjeta">
-                            <p class="txt-gorjeta">25%</p>
-                        </div>
-                        <div class="bt-gorjeta">
-                            <p class="txt-gorjeta">50%</p>
-                        </div>
+                        <button class="bt-gorjeta" id="cinco">5%</button>
+                        <button class="bt-gorjeta" id="dez">10%</button>
+                        <button class="bt-gorjeta" id="quinze">15%</button>
+                        <button class="bt-gorjeta" id="vinte-cinco">25%</button>
+                        <button class="bt-gorjeta" id="cinquenta">50%</button>
                         <div class="input-gorjeta">
-                            <input type="text" placeholder="Custom" id="porcentagem">
+                            <input type="text" placeholder="Custom" id="porcentagem" >
                         </div>
                     </div>
                 </section>
@@ -54,7 +44,7 @@
                         <h1 class="txt-base">Number of People</h1>
                         <h1 class="txt-alerta off">Can´t be zero</h1>
                     </div>
-                    <div class="area-input" id="conta">
+                    <div class="area-input" id="numero-pessoa">
                         <img src="./assets/icon-person.svg" class="icone-input" id="dollar">
                         <input type="text" placeholder="0" class="input-base" id="total-pessoa"> 
                     </div>
@@ -79,9 +69,11 @@
                         <h1 class="resultado-saida" id="saida-total">$0.00</h1>
                     </div>
                 </div>
-                <div class="bt-reset">reset</div>
+                <div class="bt-reset bt-desabilitado">reset</div>
             </section>
         </section>
     </section>
+
+    <script src="./main.js"></script>
 </body>
 </html>

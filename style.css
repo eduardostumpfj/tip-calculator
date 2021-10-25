@@ -13,6 +13,7 @@
 }
 /* ELEMENTOS GERAIS ----------------------------------------------------------------------------- */
 body{
+    overflow-x: hidden;
     font-family: var(--ft-principal);
     background:var(--cr-cinza-claro1);
     margin: 0;
@@ -46,6 +47,9 @@ input:focus::placeholder{
     color:transparent;
 }
 
+.input-alerta{
+    outline: solid 2px var(--cr-alerta);
+}
 
 /* ELEMENTOS INDIVIDUAIS ----------------------------------------------------------------------------- */
 .off{
@@ -56,7 +60,7 @@ input:focus::placeholder{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5em;    
+    gap: 3em;    
 }
 
 .logo{
@@ -64,23 +68,25 @@ input:focus::placeholder{
 }
 
 .conteudo{
-    /* overflow: hidden ; */
+    overflow: hidden;
     max-width: 870px;
     background: white;
-    padding:2em;
     border-radius: 1.5em;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3em;
+    grid-template-columns: 2em 1fr 2em 1fr 2em;
+    grid-template-rows:  2em 1fr 2em;
     box-shadow: 2px 10px 30px hsla(183, 100%, 15%, 15%);
 }
 
 .calculo{
-    min-width: var(--break-mobile);
+    grid-column: 2/3;
+    grid-row: 2/3;
     display: flex;
     flex-direction: column;
     gap:2em;
 }
+
+
 
 
 /*  INPUT TÍTULO ------------------------------------------------------------------------------------ */
@@ -117,18 +123,17 @@ input:focus::placeholder{
 
 
 /* PARTE DA GORJETA --------------------------------------------------- */
-.opcoes-gorjeta {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: .5em;
+
+.opcoes-gorjeta{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
 }
 
-.opcoes-gorjeta div{
+.opcoes-gorjeta > *{
     font-size: 24px;
     font-weight: 500;
-    width: 120px;
+    min-width: 100px;
     height: 50px;
     border-radius: var(--borda-principal);
 }
@@ -136,51 +141,57 @@ input:focus::placeholder{
 /* Botões------ */
 .bt-gorjeta{
     background:var(--cr-principal-escuro);
+    border: none;
     display: flex;
     place-items: center;
     justify-content: center;
+    color:white;
+    transition: color .2s, font-weight .2s;
     transition: background .2s;
 }
 .bt-gorjeta:hover{
     cursor:pointer;
     background:var(--cr-principal-claro);
-    color: var(--cr-principal-escuro)
-}
-
-.txt-gorjeta {
-    color:white;
-    transition: color .2s, font-weight .2s;
-}
-.bt-gorjeta:hover > p{
-    color:var(--cr-principal-escuro);
+    color: var(--cr-principal-escuro);
     font-weight: 700;
+    
 }
 
 .gorjeta-selecionada{
     background: var(--cr-principal);
     
 }
-.gorjeta-selecionada > p{
+.gorjeta-selecionada{
     color:var(--cr-principal-escuro);
     font-weight: 700;    
 }
 
 /* Input */
-#porcentagem, #porcentagem::placeholder {
-    padding-right: .5em;
-    width: calc(120px - .5em);
+.input-gorjeta{
+    position: relative;
+}
+#porcentagem{
+    padding: 0;
+    padding-right: 1em;
+    width: calc(100% - 1em);
     font-size: 24px;
-    font-weight: 700;]
+    font-weight: 700;
 }
 
 #porcentagem::placeholder{
+    position: absolute;
+    font-size: 24px;
+    font-weight: 700;
+    padding-top: .3em;
+    width: 100%;
     text-align: center;
 }
 
 
 /* RESULTADO------------------------------------------------------------------------------------------- */
 .resultado{
-    min-width: 375px;
+    grid-column: 4/5;
+    grid-row: 2/3;
     background: var(--cr-principal-escuro);
     padding: 2em;
     border-radius: 1.5em;
@@ -191,7 +202,7 @@ input:focus::placeholder{
 
 .saida{
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 35% 65%;
     align-items: center;
 }
 
@@ -212,12 +223,15 @@ input:focus::placeholder{
 }
 
 .resultado-saida{
+    overflow: hidden;
     margin: 0;
     text-align: right;
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: 700;
     color: var(--cr-principal);
 }
+
+
 
 .bt-reset{
     display: flex;
@@ -239,12 +253,53 @@ input:focus::placeholder{
     color: var(--cr-principal-escuro)
 }
 
-@media (max-width: 940px){
-    .conteudo{
-        overflow:hidden
-        /* max-width: 940px; */
-        width: 100vw;
-        display: flex;
-        flex-direction: column;
+.bt-desabilitado{
+    opacity: 0.1;
+}
+.bt-desabilitado:hover{
+    background: var(--cr-principal);
+    cursor: default;
+}
+
+@media (max-width: 974px){
+    body{
+        height: 100%;
     }
+
+    .container{
+        display:grid; 
+        grid-template-rows:10% 90% ;
+        gap: 1em;
+        place-items: center;
+    }
+    .conteudo{
+        width: 100%;
+        border-radius: 1.5em 1.5em 0 0 ;
+        display: grid;
+        grid-template-rows: 2em 1fr 2em .5fr 2em;
+        grid-template-columns:  2em 1fr 2em;
+        box-shadow: none;
+    }
+
+    .calculo{
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+
+    .resultado{
+        grid-column: 2/3;
+        grid-row: 4/5;
+        gap: 1em;
+    }
+
+    .opcoes-gorjeta{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1em;
+    }
+
+    .resultado-saida{
+        font-size: 2em;
+    }
+
 }
