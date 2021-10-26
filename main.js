@@ -8,6 +8,7 @@ const gorjetas = document.querySelectorAll('.bt-gorjeta')
 let gorjeta = 0;
 
 
+
 function desativarAlerta(){
     document.querySelector('.txt-alerta').classList.add('off')
     document.querySelector('#total-pessoa').classList.remove('input-alerta')    
@@ -54,17 +55,22 @@ function pegarinputGorjeta(){
     if(selecionada !== null){
         selecionada.classList.remove('gorjeta-selecionada')
     }
-    gorjeta = inputGorjeta.value /100
-    calcularGorjeta();
+    //Checar se o inoput é um número
+    if (!isNaN(inputGorjeta.value)){
+        gorjeta = inputGorjeta.value /100
+        calcularGorjeta();
+    }
 }
 
 function calcularGorjeta(){
     let valorConta = inputConta.value
     let numeroPessoas = inputPessoas.value;
+    // Resetar o valor incial do texto do alerta
+    document.querySelector('.txt-alerta').innerHTML = 'Can´t be zero'
     // Ativar botão Reset
     ativarBotao();
     // input válido da conta
-    if(valorConta == ''){
+    if(valorConta == '' || isNaN(valorConta)){
         mudarSaidaTotal('0,00', '0.00')
         desativarAlerta()
         desativarBotao()
@@ -72,7 +78,13 @@ function calcularGorjeta(){
     }
     // numero certo de pessoas
     if(numeroPessoas === ''){
+        mudarSaidaTotal('0,00', '0.00')
         ativarAlerta()
+        return
+    } else if(isNaN(numeroPessoas)){
+        mudarSaidaTotal('0,00', '0.00')
+        ativarAlerta()
+        document.querySelector('.txt-alerta').innerHTML = 'Can´t be a text'
         return
     } else { desativarAlerta() }
     let totalGorjeta = (valorConta * gorjeta / numeroPessoas).toFixed(2)
